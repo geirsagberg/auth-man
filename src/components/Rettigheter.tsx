@@ -11,18 +11,18 @@ import React, { FC } from 'react'
 import { useOvermind } from '../overmind'
 import { map } from 'lodash-es'
 
-export const Brukere: FC = () => {
+export const Rettigheter: FC = () => {
   const {
-    actions: { addUser },
-    state: { users },
+    actions: { addPermission },
+    state: { permissions },
   } = useOvermind()
 
-  const onClick = () => addUser()
+  const onClick = () => addPermission()
 
   return (
     <div>
       <Button variant="contained" color="primary" onClick={onClick}>
-        Legg til bruker
+        Legg til rettighet
       </Button>
       <Box py={2}>
         <Table>
@@ -32,9 +32,9 @@ export const Brukere: FC = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {map(users, (user) => (
-              <TableRow key={user.id}>
-                <TableCell>{user.userName}</TableCell>
+            {map(permissions, (permission) => (
+              <TableRow key={permission.id}>
+                <TableCell>{permission.operations}</TableCell>
               </TableRow>
             ))}
           </TableBody>

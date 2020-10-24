@@ -1,16 +1,12 @@
-import { Provider } from 'overmind-react'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import './index.css'
-import { overmind } from './overmind'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider value={overmind}>
-      <App />
-    </Provider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 )
